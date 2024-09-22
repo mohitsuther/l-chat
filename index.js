@@ -11,7 +11,7 @@ http.listen(PORT,()=>{
 
 app.use(express.static(__dirname + '/allcode'));
 
-app.get('/',(req,res)=>{
+app.get('/',( req,res)=>{
     res.sendFile(__dirname + '/index.html');
 })
 
@@ -20,7 +20,7 @@ app.get('/',(req,res)=>{
 const io = require('socket.io')(http);
 
 io.on('connection',(socket)=>{
-console.log('connected....');
+console.log('connected..');
 socket.on('message',(msg)=>{
     socket.broadcast.emit('message',msg);
 })
